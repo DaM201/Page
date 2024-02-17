@@ -20,14 +20,17 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
+            margin-top: 30px; /* Minimální vzdálenost od horního okraje */
         }
+
         #page-title {
             font-family: 'Bahnschrift SemiBold', sans-serif;
-            font-size: 35px;
+            font-size: 24px; /* Velikost písma */
             font-weight: bold;
             color: black;
-            margin-bottom: 26px;
+            margin-bottom: 20px;
         }
+
         .folder-button {
             font-family: 'Bahnschrift SemiBold', sans-serif;
             display: block;
@@ -47,22 +50,11 @@
             background-color: white; /* Bílé pozadí po najetí myší */
             color: #4caf50; /* Zelená barva textu po najetí myší */
         }
-
-        .page-title {
-            font-family: 'Bahnschrift SemiBold', sans-serif;
-            font-size: 24px;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 20px;
-            color: #4caf50; /* Zelená barva textu */
-        }
     </style>
 </head>
 <body>
     <div class="white-frame">
-        <div class="page-title" id="page-title">
-            TRP Scripts <?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?>
-        </div>
+        <div id="page-title">TRP Scripts - <?php echo htmlspecialchars(basename(__DIR__)); ?></div>
         <?php
             $directory = __DIR__; // Aktuální adresář skriptu
             $folders = array_filter(glob($directory . '/*'), 'is_dir'); // Získání seznamu složek
